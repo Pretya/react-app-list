@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
   const [questions, setQuestions] = useState(list);
+  
   const handleStatusChange = (id) => {
     const updatedQuestions = questions.map((el) => {
       if (el.id === id) {
@@ -15,7 +16,7 @@ function App() {
     });
     setQuestions(updatedQuestions);
   };
-
+  
   return (
     <div className="App">
       <h1 className="title">
@@ -28,7 +29,7 @@ function App() {
           const stateIcon = el.state ? 'fas fa-check-square' : 'fas fa-ban';
           const stateText = el.state ? 'Разобрался' : 'Не разобрался';
           console.log();
-          return <div className="card p-5 mt-3 has-text-link has-background-white">
+          return <div className="card p-5 mt-3 has-text-link has-background-white" key={index}>
                       {listIndex}. {el.question}
                         <span className={stateSpan}>
                           <span className="icon">
@@ -49,3 +50,4 @@ function App() {
 }
 
 export default App;
+
